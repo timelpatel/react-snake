@@ -1,0 +1,25 @@
+/*
+    React Snake
+    Base SASS
+*/
+
+
+body {
+    background: #efefef;
+    font-family: verdana;
+}
+
+h1 {
+    color: #cdcdcd;
+    margin: 40px 0;
+    text-align: center;
+}
+
+#grid {
+    margin: 0 auto;
+}
+
+.grid-cell {
+    background: #333;
+    float: left;
+}
