@@ -9,27 +9,37 @@ class SnakeGame extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            cells: [],
+            cellSize: 30,
+            totalCols: 20,
+            totalRows: 20
         }
     }
 
-    render() {
+    componentDidMount() {
+        this.drawGrid()
+    }
 
-        // draw grid
-        const cellSize = 30
-        let cells = []
+    drawGrid() {
         const gridCellStyle = {
-            height: cellSize,
-            width: cellSize
+            height: this.state.cellSize,
+            width: this.state.cellSize
         }
-        const totalCols = 20
-        const totalRows = 20
+        let cells = cells || []
 
-        for (let row = 0; row < totalRows; row++) {
-            for (let col = 0; col < totalCols; col++) {
-                cells.push(<div className='grid-cell' key={row + '-' + col} style={gridCellStyle}></div>)
+        // loop through each cell. creating the grid
+        for (let row = 0; row < this.state.totalRows; row++) {
+            for (let col = 0; col < this.state.totalCols; col++) {
+                cells.push(<span className='grid-cell' id={`${row}-${col}`} key={`${row}-${col}`} style={gridCellStyle}></span>)
             }
         }
+
+        this.setState({cells: cells})
+    }
+
+
+    render() {
+        let cells = cells || []
 
 
         return (
@@ -39,11 +49,11 @@ class SnakeGame extends Component {
                 <div
                     id='grid'
                     style={{
-                        height: cellSize * totalCols,
-                        width: cellSize * totalRows
+                        height: this.state.cellSize * this.state.totalCols,
+                        width: this.state.cellSize * this.state.totalRows
                     }}
                 >
-                    {cells}
+                    {this.state.cells}
                 </div>
             </div>
 
