@@ -15,16 +15,26 @@ h1 {
     text-align: center;
 }
 
+
+
+// grid
 #grid {
     margin: 0 auto;
 }
 
-.grid-cell {
-    background: #333;
+.grid {
     float: left;
 }
 
-.grid-food {
+.grid.cell {
+    background: #333;
+}
+
+.grid.food {
     background: green;
-    float: left;
+}
+
+.grid.body,
+.grid.snake {
+    background: blue;
 }
